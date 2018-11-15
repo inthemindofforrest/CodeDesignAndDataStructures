@@ -19,17 +19,7 @@ public:
 
 	void push(const T& value)            // adds an element to the top of the Queue
 	{
-		//vec.push_front(value);
-		if ((arrCapacity) == arrSize)
-		{
-			reserve(arrCapacity * GROWTH_FACTOR);
-		}
-
-		arrSize++;
-
-		for (size_t i = arrSize - 1; i > 0; i--)
-			arr[i] = arr[i - 1];
-		arr[0] = value;
+		vec.push_front(value);
 	}
 	void pop()                           // drops the top-most element of the Queue
 	{
