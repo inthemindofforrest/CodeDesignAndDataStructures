@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{628CD259-F89B-4329-A428-3E37B60B74C1}</ProjectGuid>
-    <RootNamespace>Containers</RootNamespace>
+    <ProjectGuid>{8ABC13BB-C9C9-43A3-A9F9-62956871F176}</ProjectGuid>
+    <RootNamespace>Sorting</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -120,17 +120,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BubbleSorting.cpp" />
+    <ClCompile Include="InsertionSorting.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ForwardLinkedList.h" />
-    <ClInclude Include="ObjectPooling.h" />
-    <ClInclude Include="Queue.h" />
-    <ClInclude Include="tStack.h" />
-    <ClInclude Include="tVector.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="ImageTexture.png" />
+    <ClInclude Include="MergeSort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

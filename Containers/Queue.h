@@ -20,6 +20,11 @@ public:
 	void push(const T& value)            // adds an element to the top of the Queue
 	{
 		vec.push_front(value);
+		vec.push_back(value);
+		for(int i = vec.size(); i >= 0; i--)
+
+
+
 	}
 	void pop()                           // drops the top-most element of the Queue
 	{
