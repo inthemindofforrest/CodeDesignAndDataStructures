@@ -48,9 +48,9 @@ public:
 		}
 		iterator operator++(int)                   // post-increment (returns an iterator to current node while incrementing the existing iterator)
 		{
-			if (cur == rhs.cur)
-				return false;
-			return true;
+			Node * Temp = cur;
+			++cur;
+			return Temp;
 		}
 	};
 
@@ -60,10 +60,10 @@ public:
 	}
 	iterator end()
 	{
-		cur = head;
+		Node * cur = head;
 		while (cur->next != nullptr)
 		{
-			cur++;
+			cur = cur.next;
 		}
 		return (*this);
 	}
