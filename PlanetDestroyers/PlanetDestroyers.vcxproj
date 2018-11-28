@@ -120,7 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Blackhole.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameplayManager.cpp" />
     <ClCompile Include="GameStates.cpp" />
@@ -130,7 +130,7 @@
     <ClCompile Include="Planet.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Blackhole.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameplayManager.h" />
     <ClInclude Include="GameStates.h" />

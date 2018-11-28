@@ -13,7 +13,7 @@ class tForwardList
 
 public:
 	tForwardList();                 // default constructor
-	~tForwardList(){}                // destructor
+	~tForwardList() {}                // destructor
 
 	void push_front(const T& val);  // adds element to front (i.e. head)
 	void pop_front();               // removes element from front
@@ -26,7 +26,7 @@ public:
 
 	void clear();
 	bool empty() const;
-	void resize(size_t newSize);
+	void resize(size_t newSize, T Data);
 
 	tForwardList(const tForwardList& other);
 	tForwardList& operator=(const tForwardList &rhs);
@@ -38,6 +38,12 @@ public:
 		Node * cur;                                 // current node being operated upon
 
 	public:
+		iterator() {}
+		iterator(Node * Start)
+		{
+			cur = Start;
+		}
+
 		bool operator==(const iterator& rhs) const; // returns true if the iterator points to the same node
 		bool operator!=(const iterator& rhs) const; // returns false if the iterator does not point to the same node
 		T& operator*() const;                       // returns a reference to the element pointed to by the current node
@@ -48,24 +54,21 @@ public:
 		}
 		iterator operator++(int)                   // post-increment (returns an iterator to current node while incrementing the existing iterator)
 		{
-			Node * Temp = cur;
+			iterator TempIterator;
+			TempIterator.cur = cur;
+
 			++cur;
-			return Temp;
+			return TempIterator;
 		}
 	};
 
 	iterator begin()
 	{
-		return head;
+		return iterator(head);
 	}
 	iterator end()
 	{
-		Node * cur = head;
-		while (cur->next != nullptr)
-		{
-			cur = cur.next;
-		}
-		return (*this);
+		return iterator(nullptr);
 	}
 
 };
@@ -106,35 +109,18 @@ const T& tForwardList<T>::front() const
 template<typename T>
 void tForwardList<T>::remove(const T& val)      // removes all elements equal to the given value
 {
-	Node * PreviousNode = nullptr;
-	Node * NextNode = nullptr;
-	for (Node * CurrentNode = head; CurrentNode != NULL; CurrentNode = CurrentNode->next)
+	Node * CurrentNode = head;
+	while (CurrentNode != nullptr)
 	{
-
-		if (head->data == val)
+		if (CurrentNode->data == val)
 		{
-			//if the head == the value, use pop_front to remove the head. Then set current to the next
+			Node * TempNextNode = CurrentNode->next;
+			CurrentNode->data = head->data;
 			pop_front();
-			CurrentNode = head;
+			CurrentNode = TempNextNode;
 		}
 		else
-		{
-			PreviousNode = CurrentNode;
-			if (CurrentNode->next != nullptr)
-				NextNode = CurrentNode->next;
-			else
-				return;
-
-
-			if (NextNode->data == val)
-			{
-				CurrentNode = NextNode;
-				delete NextNode;
-				NextNode = CurrentNode->next;
-				continue;
-			}
-
-		}
+			CurrentNode = CurrentNode->next;
 	}
 }
 
@@ -161,9 +147,40 @@ bool tForwardList<T>::empty() const
 }
 
 template<typename T>//NEED TO FINISH THIS ONE
-void tForwardList<T>::resize(size_t newSize)
+void tForwardList<T>::resize(size_t newSize, T Data)
 {
+	Node * TempNode = head;
+	int currentNodes = 0; // Counts how many Nodes are in the list
+	while (TempNode->next != nullptr)
+	{
+		currentNodes++;
+		TempNode = TempNode->next;
+	}
 
+	if (currentNodes < newSize)
+	{
+		for (int i = currentNodes + 1; i < newSize; i++)
+		{
+			push_front(Data);
+
+			Node * CurrentNode = head;
+			Node * NextNode = head->next;
+			for (int i = 0; i <= currentNodes; i++)
+			{
+				CurrentNode->data = NextNode->data;
+				CurrentNode = NextNode;
+				NextNode = NextNode->next;
+			}
+			CurrentNode->data = Data;
+		}
+	}
+	else
+	{
+		for (int i = newSize - 1; i < currentNodes; i++)
+		{
+			pop_front();
+		}
+	}
 }
 
 template<typename T>
@@ -188,7 +205,7 @@ tForwardList<T>& tForwardList<T>::operator=(const tForwardList &rhs)
 	clear();
 	Node * Temp = rhs.head->next;//Points within the rhs list
 	Node * newNode = new Node{ Temp->data, nullptr };//Points within the Current List
-	head = new Node{ other.head->data , newNode };
+	head = new Node{ rhs.head->data , newNode };
 	while (Temp != nullptr)
 	{
 		Temp = Temp->next;
@@ -202,7 +219,7 @@ tForwardList<T>& tForwardList<T>::operator=(const tForwardList &rhs)
 template<typename T>
 T& tForwardList<T>::iterator::operator*() const
 {
-	return cur;
+	return cur->data;
 }
 
 template<typename T>
@@ -213,4 +230,10 @@ bool tForwardList<T>::iterator::operator==(const iterator& rhs) const
 	return false;
 }
 
-
+template<typename T>
+bool tForwardList<T>::iterator::operator!=(const iterator& rhs) const
+{
+	if (cur != rhs.cur)
+		return true;
+	return false;
+}

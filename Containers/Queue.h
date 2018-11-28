@@ -19,10 +19,11 @@ public:
 
 	void push(const T& value)            // adds an element to the top of the Queue
 	{
-		vec.push_front(value);
+		//vec.push_front(value);
 		vec.push_back(value);
-		for(int i = vec.size(); i >= 0; i--)
-
+		for (int i = vec.size(); i > 0; i--)
+			vec[i] = vec[i - 1];
+		vec[0] = value;
 
 
 	}

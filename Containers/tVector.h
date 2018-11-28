@@ -37,7 +37,6 @@ public:
 				break;
 			temp[i] = arr[i];
 		}
-		delete[] arr;
 
 		arrCapacity = newCapacity;
 		arr = temp;
@@ -58,19 +57,19 @@ public:
 		arrSize--;
 	}
 
-	void push_front(const T &value)     // adds an element to the end of the vector
-	{
-		if ((arrCapacity) == arrSize)
-		{
-			reserve(arrCapacity * GROWTH_FACTOR);
-		}
+	//void push_front(const T &value)     // adds an element to the end of the vector
+	//{
+	//	if ((arrCapacity) == arrSize)
+	//	{
+	//		reserve(arrCapacity * GROWTH_FACTOR);
+	//	}
 
-		arrSize++;
+	//	arrSize++;
 
-		for (size_t i = arrSize - 1; i > 0; i--)
-			arr[i] = arr[i - 1];
-		arr[0] = value;
-	}
+	//	for (size_t i = arrSize - 1; i > 0; i--)
+	//		arr[i] = arr[i - 1];
+	//	arr[0] = value;
+	//}
 
 	T &at(size_t index)                // returns the element at the given element
 	{

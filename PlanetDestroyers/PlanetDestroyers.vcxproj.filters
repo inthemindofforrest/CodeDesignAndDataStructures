@@ -36,13 +36,13 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Blackhole.cpp">
-      <Filter>Source Files\Gameplay</Filter>
-    </ClCompile>
     <ClCompile Include="GameplayManager.cpp">
       <Filter>Source Files\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="Planet.cpp">
+      <Filter>Source Files\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,13 +62,13 @@
     <ClInclude Include="GameplayManager.h">
       <Filter>Header Files\Gamplay</Filter>
     </ClInclude>
-    <ClInclude Include="Blackhole.h">
-      <Filter>Header Files\Gamplay</Filter>
-    </ClInclude>
     <ClInclude Include="Planet.h">
       <Filter>Header Files\Gamplay</Filter>
     </ClInclude>
     <ClInclude Include="Levels.h">
+      <Filter>Header Files\Gamplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
       <Filter>Header Files\Gamplay</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,9 @@
 #include "Blackhole.h"
 #include "Planet.h"
 #include "Levels.h"
+#include "Bullet.h"
+
+#include"GameStates.h"
 #include <vector>
 
 class GameplayManager
@@ -12,16 +15,13 @@ class GameplayManager
 	GameplayManager(GameplayManager const&);
 	void operator=(GameplayManager const&);
 
-	BlackHole LeftBlackHole;
-	BlackHole RightBlackHole;
+	std::vector<Planet> ArrOfPlanets;
+	std::vector<int> PlanetIsActive;
 
-	Planet ControlledPlanet;
-	Planet DestinationPlanet;
-
-	Vector2 RatioOfDistance(float x, float y);
+	std::vector<Bullet> ArrOfBullets;
+	std::vector<int> BulletIsActive;
 
 public:
-	void SpawnBlackHole();
 	void Update();
 	void InitPlanets(int Level);
 
