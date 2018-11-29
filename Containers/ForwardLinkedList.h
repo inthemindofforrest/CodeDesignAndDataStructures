@@ -13,7 +13,11 @@ class tForwardList
 
 public:
 	tForwardList();                 // default constructor
-	~tForwardList() {}                // destructor
+	~tForwardList() 
+	{
+		resize(1);
+		delete head;
+	}                // destructor
 
 	void push_front(const T& val);  // adds element to front (i.e. head)
 	void pop_front();               // removes element from front

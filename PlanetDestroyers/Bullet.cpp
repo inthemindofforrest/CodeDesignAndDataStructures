@@ -13,7 +13,7 @@ Bullet::Bullet(Rectangle rect, Texture2D texture)
 
 void Bullet::Draw()
 {
-	DrawTextureEx(Texture, { Rect.x, Rect.y }, 0, .1f, BLUE);
+	DrawTextureEx(Texture, { Rect.x, Rect.y }, 0, .1f, WHITE);
 }
 void Bullet::MoveBullet(Vector2 Direction)
 {

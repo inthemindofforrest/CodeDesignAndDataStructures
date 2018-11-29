@@ -21,7 +21,7 @@ class GameplayManager
 
 	std::vector<Bullet> ArrOfBullets;
 
-	
+	Planet * BackgroundPlanet;
 	
 	Player MainPlayer;
 

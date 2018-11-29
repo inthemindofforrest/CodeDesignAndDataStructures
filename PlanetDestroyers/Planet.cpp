@@ -16,6 +16,10 @@ void Planet::Draw()
 {
 	DrawTextureEx(Texture, { Rect.x, Rect.y }, 0, .5f, WHITE);
 }
+void Planet::Draw(float Size)
+{
+	DrawTextureEx(Texture, { Rect.x, Rect.y }, 0, Size, WHITE);
+}
 void Planet::MovePlanet(Vector2 Direction)
 {
 	Rect.y += Direction.y;
@@ -26,6 +30,6 @@ void Planet::Update()
 	if (isActive)
 	{
 		Draw();
-		MovePlanet({ 0,1 });
+		MovePlanet({ 0,.5f });
 	}
 }

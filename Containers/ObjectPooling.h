@@ -24,7 +24,7 @@ public:
 	}
 	~tObjectPool()                      // destroys all objects
 	{
-
+		delete[] pool;
 	}
 
 	T* retrieve(size_t Index)                      // returns a pointer to an object that will be used (returns null if none available)
@@ -43,7 +43,7 @@ public:
 				return;
 			}
 	}
-	void DeactivateIndex(size_t Index)               // accepts a pointer that can be used in the future
+	void DeactivateIndex(size_t Index)             
 	{
 		free[Index] = true;
 	}

@@ -9,6 +9,10 @@ class tQueue
 
 public:
 	tQueue() {}                        // default initializes the queue
+	~tQueue()
+	{
+		vec.clear();
+	}
 
 	tQueue(size_t count, const T& value) // constructs a queue with the given number of elements 
 	{

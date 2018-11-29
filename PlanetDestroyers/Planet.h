@@ -11,6 +11,7 @@ struct Planet
 	bool isActive;
 
 	void Draw();
+	void Draw(float Size);
 	void MovePlanet(Vector2 Direction);
 	void Update();
 

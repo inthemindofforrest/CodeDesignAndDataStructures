@@ -3,11 +3,9 @@
 
 Player::Player()
 {
-	Velocity = { 0,10 };
 }
 Player::Player(Rectangle rect, Texture2D texture)
 {
-	Velocity = { 0,10 };
 	Rect = rect;
 	Texture = texture;
 }
@@ -18,11 +16,11 @@ void Player::Draw()
 }
 void Player::MovePlayer(Vector2 Direction)
 {
-	if (IsKeyDown(KEY_A))
+	if (IsKeyDown(KEY_A) && Rect.x > 0)
 	{
 		Rect.x -= Direction.x;
 	}
-	if (IsKeyDown(KEY_D))
+	if (IsKeyDown(KEY_D) && Rect.x < GetScreenWidth() - Texture.width / 10)
 	{
 		Rect.x += Direction.x;
 	}
@@ -31,5 +29,5 @@ void Player::MovePlayer(Vector2 Direction)
 void Player::Update(std::vector<Bullet>  BulletsAreActive)
 {
 	Draw();
-	MovePlayer({ 3,0 });
+	MovePlayer({ 4,0 });
 }

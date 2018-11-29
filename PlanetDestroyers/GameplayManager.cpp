@@ -15,6 +15,7 @@ void GameplayManager::Update(int Difficulty)
 {
 	static float Timer = 0;
 
+	BackgroundPlanet->Draw(10.0f);
 	DrawText(std::to_string(Score).c_str(), (GetScreenWidth() / 2) -
 		(MeasureText(std::to_string(Score).c_str(), 25) / 2),
 		(GetScreenHeight() / 10) * 1, 25, WHITE);
@@ -65,7 +66,7 @@ void GameplayManager::Update(int Difficulty)
 			{
 				ArrOfPlanets[i].isActive = true;
 
-				ArrOfPlanets[i].Rect = { (float)(rand() % GetScreenWidth()),-10,(float)ArrOfPlanets[i].Rect.width, (float)ArrOfPlanets[i].Rect.height };
+				ArrOfPlanets[i].Rect = { (float)(rand() % (GetScreenWidth() - ArrOfPlanets[i].Texture.width)),-10,(float)ArrOfPlanets[i].Rect.width, (float)ArrOfPlanets[i].Rect.height };
 
 				Timer = 0;
 				break;
@@ -107,4 +108,6 @@ void GameplayManager::InitPlanets(int TotalPool)
 
 	MainPlayer.Rect = { (float)(GetScreenWidth() / 2), (float)(GetScreenHeight() / 20) * 18, 10, 30 };
 	MainPlayer.Texture = PlayerTexture;
+
+	BackgroundPlanet = new Planet({(float)(GetScreenWidth() / 2 - (PlanetTexture.width / 2) * 10),(float)(GetScreenHeight() - ((PlanetTexture.height / 10 )* 10) * 2),(float)(PlanetTexture.width * 5),(float)(PlanetTexture.height * 5)}, PlanetTexture);
 }
