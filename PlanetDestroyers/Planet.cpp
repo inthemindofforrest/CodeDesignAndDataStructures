@@ -3,28 +3,29 @@
 
 Planet::Planet()
 {
-	Velocity = { 0,0 };
+	isActive = false;
 }
 Planet::Planet(Rectangle rect, Texture2D texture)
 {
-	Velocity = { 0,1 };
 	Rect = rect;
 	Texture = texture;
+	isActive = false;
 }
 
 void Planet::Draw()
 {
-	DrawTextureEx(Texture, { Rect.x, Rect.y }, 0, 1, WHITE);
+	DrawTextureEx(Texture, { Rect.x, Rect.y }, 0, .5f, WHITE);
 }
 void Planet::MovePlanet(Vector2 Direction)
 {
 	Rect.y += Direction.y;
 }
 
-void Planet::Update(std::vector<Bullet> ArrOfBullets, std::vector<int> PlanetIsActive)
+void Planet::Update()
 {
-	Draw();
-	for (int i = 0; i < 100; i++)
-		if (CheckCollisionRecs(Rect, ArrOfBullets[i].Rect))
-			PlanetIsActive[i] = 0;
+	if (isActive)
+	{
+		Draw();
+		MovePlanet({ 0,1 });
+	}
 }

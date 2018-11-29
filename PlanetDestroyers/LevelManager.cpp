@@ -5,8 +5,8 @@ LevelManager::LevelManager()
 {
 	Texture2D BasicButton = LoadTexture("Blank.png");
 	PushButton(*new Button("Back", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 8) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
-	PushButton(*new Button("Level 1", { (((float)GetScreenWidth() / 10) * 3) - BasicButton.width / 2,((float)GetScreenHeight() / 2) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
-	PushButton(*new Button("Level 2", { (((float)GetScreenWidth() / 10) * 7) - BasicButton.width / 2,((float)GetScreenHeight() / 2) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
+	PushButton(*new Button("Easy", { (((float)GetScreenWidth() / 10) * 3) - BasicButton.width / 2,((float)GetScreenHeight() / 2) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
+	PushButton(*new Button("Hard", { (((float)GetScreenWidth() / 10) * 7) - BasicButton.width / 2,((float)GetScreenHeight() / 2) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
 }
 LevelManager::~LevelManager(){}
 LevelManager::LevelManager(LevelManager const&) {}

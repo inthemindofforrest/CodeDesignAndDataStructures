@@ -5,11 +5,7 @@ MainMenuScreen::MainMenuScreen()
 {
 	Texture2D BasicButton = LoadTexture("Blank.png");
 	PushButton(*new Button("Play", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 2) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
-	PushButton(*new Button("Options", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 5) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
 	PushButton(*new Button("Quit", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 8) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
-	PushButton(*new Button("Option 1", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 2) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
-	PushButton(*new Button("Option 1", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 5) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
-	PushButton(*new Button("Back", { ((float)GetScreenWidth() / 2) - BasicButton.width / 2,(((float)GetScreenHeight() / 10) * 8) - BasicButton.height / 2,(float)BasicButton.width ,(float)BasicButton.height }, LoadTexture("Blank.png")));
 }
 MainMenuScreen::~MainMenuScreen()
 {
@@ -44,17 +40,8 @@ void MainMenuScreen::Update()
 			case 0://LevelSelection -> Play
 				GameState::GetInstance().setState(1);
 				break;
-			case 1://Controls
-				GameState::GetInstance().setState(2);
-				break;
-			case 2://Exit
+			case 2://Controls
 				GameState::GetInstance().setState(3);
-				break;
-			case 3:
-				//Do Something
-				break;
-			case 4:
-				//Do Something
 				break;
 			case 5:
 				GameState::GetInstance().setState(0);

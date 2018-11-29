@@ -2,6 +2,7 @@
 #include "GameStates.h"
 #include "LevelManager.h"
 #include "GameplayManager.h"
+#include <time.h>
 
 int main()
 {
@@ -13,8 +14,13 @@ int main()
 	InitWindow(screenWidth, screenHeight, "Planet Destroyers");
 	SetTargetFPS(60);
 
+	srand(time(NULL));
+
 	MainMenuScreen::GetInstance();
 	GameState::GetInstance();
+	GameplayManager::GetInstance().InitPlanets(100);
+	std::string Score;
+
 	while (!WindowShouldClose())  
 	{
 		BeginDrawing();
@@ -25,24 +31,33 @@ int main()
 			MainMenuScreen::GetInstance().Update();
 			break;
 		case 1://LevelSelection
-			ClearBackground(DARKGREEN);
+			ClearBackground(BLACK);
 			LevelManager::GetInstance().Update();
 			break;
 		case 2://Options
-			ClearBackground(DARKPURPLE);
+			ClearBackground(BLACK);
 			MainMenuScreen::GetInstance().Update();
 			break;
 		case 3://GameOver
-			CloseWindow();
-			return 0;
+			ClearBackground(BLACK);
+			Score.clear();
+			Score.append("Score: " + std::to_string(GameplayManager::GetInstance().Score));
+			DrawText(Score.c_str(), (GetScreenWidth() / 2) - (MeasureText(Score.c_str(), 25) / 2), GetScreenHeight() / 2, 25, WHITE);
+			DrawText("Press Space", (GetScreenWidth() / 2) - (MeasureText("Press Space", 25) / 2), (GetScreenHeight() / 10 ) * 7, 25, WHITE);
+
+			if (IsKeyPressed(KEY_SPACE))
+			{
+				CloseWindow();
+				return 0;
+			}
 			break;
 		case 4://Level 1
-			ClearBackground(GRAY);
-			GameplayManager::GetInstance().InitPlanets(1);
-			GameplayManager::GetInstance().Update();
+			ClearBackground(BLACK);
+			GameplayManager::GetInstance().Update(0);
 			break;
 		case 5://Level 2
-			ClearBackground(DARKBLUE);
+			ClearBackground(BLACK);
+			GameplayManager::GetInstance().Update(1);
 			break;
 		default:
 			break;

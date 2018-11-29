@@ -8,11 +8,11 @@ struct Planet
 	Rectangle Rect;
 	Texture2D Texture;
 
-	Vector2 Velocity;
+	bool isActive;
 
 	void Draw();
 	void MovePlanet(Vector2 Direction);
-	void Update(std::vector<Bullet> ArrOfBullets, std::vector<int> PlanetIsActive);
+	void Update();
 
 	Planet();
 	Planet(Rectangle rect, Texture2D texture);

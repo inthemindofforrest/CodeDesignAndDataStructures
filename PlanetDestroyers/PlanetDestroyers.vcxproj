@@ -128,6 +128,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Planet.cpp" />
+    <ClCompile Include="ThePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Levels.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Planet.h" />
+    <ClInclude Include="ThePlayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,9 +4,11 @@
 #include "Planet.h"
 #include "Levels.h"
 #include "Bullet.h"
+#include "ThePlayer.h"
 
 #include"GameStates.h"
 #include <vector>
+#include <string>
 
 class GameplayManager
 {
@@ -16,14 +18,17 @@ class GameplayManager
 	void operator=(GameplayManager const&);
 
 	std::vector<Planet> ArrOfPlanets;
-	std::vector<int> PlanetIsActive;
 
 	std::vector<Bullet> ArrOfBullets;
-	std::vector<int> BulletIsActive;
+
+	
+	
+	Player MainPlayer;
 
 public:
-	void Update();
-	void InitPlanets(int Level);
+	int Score = 0;
+	void Update(int Difficulty);
+	void InitPlanets(int TotalPool);
 
 	static GameplayManager& GetInstance();
 
